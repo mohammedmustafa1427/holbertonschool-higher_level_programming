@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 word = "Holberton"
 word1 = word[:3]
 word2 = word[-2:]
