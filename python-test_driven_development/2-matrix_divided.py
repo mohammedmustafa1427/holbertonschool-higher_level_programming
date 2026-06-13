@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """
 This module provides a function that divides all elements of a matrix.
-It validates matrix structures, dimensions, data types, and division constraints.
+It validates matrix structures, dimensions, data types,
+and division constraints.
 """
+
 
 def matrix_divided(matrix, div):
     """
@@ -13,7 +15,8 @@ def matrix_divided(matrix, div):
         div (int/float): The number to divide the matrix elements by.
 
     Returns:
-        list: A new matrix representing the division results rounded to 2 decimals.
+        list: A new matrix representing the division
+        results rounded to 2 decimals.
     """
     error_msg = "matrix must be a matrix (list of lists) of integers/floats"
 
@@ -22,7 +25,7 @@ def matrix_divided(matrix, div):
 
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
-    if div != div or div in (float('inf'), float('-inf')):
+    if div != div:
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
@@ -43,4 +46,7 @@ def matrix_divided(matrix, div):
             if element != element or element in (float('inf'), float('-inf')):
                 raise TypeError(error_msg)
 
-    return [[round(element / div, 2) for element in row] for row in matrix]
+    return [
+        [round(element / div, 2) + 0.0 for element in row]
+        for row in matrix
+    ]
